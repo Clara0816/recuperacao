@@ -1,0 +1,37 @@
+/* 10 pontos
+8 - Leia a idade e o sexo de 50 pessoas e mostre a média de idade para
+cada sexo.
+Nome aluno: Clara Gabrielle Bononi
+*/
+let teclado = require(`prompt-sync`)();
+
+let somaMasculino: number = 0;
+let somaFeminino: number = 0;
+let contadorMasculino: number = 0;
+let contadorFeminino: number = 0;
+
+let contador: number = 1;
+
+while (contador <= 50) {
+    console.log(`Pessoa ${contador}`);
+    let idade: number = parseInt(teclado(`Digite a idade: `));
+    let sexo: string = teclado(`Digite o sexo (M para masculino, F para feminino): `).toUpperCase();
+
+    if (sexo === 'M') {
+        somaMasculino += idade;
+        contadorMasculino++;
+    } else if (sexo === 'F') {
+        somaFeminino += idade;
+        contadorFeminino++;
+    } else {
+        console.log(`Sexo inválido!`);
+    }
+    console.log(`--------------------------`);
+    contador++;
+}
+
+let mediaMasculino: number = contadorMasculino > 0 ? somaMasculino / contadorMasculino : 0;
+let mediaFeminino: number = contadorFeminino > 0 ? somaFeminino / contadorFeminino : 0;
+
+console.log(`Média de idade dos homens: ${mediaMasculino.toFixed(2)}`);
+console.log(`Média de idade das mulheres: ${mediaFeminino.toFixed(2)}`);
