@@ -4,30 +4,48 @@ cada sexo.
 Nome aluno: Clara Gabrielle Bononi
 */
 var teclado = require("prompt-sync")();
-var somaMasculino = 0;
-var somaFeminino = 0;
-var contadorMasculino = 0;
-var contadorFeminino = 0;
+var somaIdadeHomem = 0;
+var somaIdadeMulher = 0;
+var contHomem = 0;
+var contMulher = 0;
 var contador = 1;
 while (contador <= 50) {
-    console.log("Pessoa ".concat(contador));
+    console.log("Pessoa ".concat(contador, ":"));
     var idade = parseInt(teclado("Digite a idade: "));
-    var sexo = teclado("Digite o sexo (M para masculino, F para feminino): ").toUpperCase();
-    if (sexo === 'M') {
-        somaMasculino += idade;
-        contadorMasculino++;
+    var sexo = teclado("Digite o sexo (M para masculino, F para feminino): ");
+    if (sexo == "M") {
+        somaIdadeHomem += idade;
+        contHomem++;
+        contador++;
     }
-    else if (sexo === 'F') {
-        somaFeminino += idade;
-        contadorFeminino++;
+    else if (sexo == "F") {
+        somaIdadeMulher += idade;
+        contMulher++;
+        contador++;
     }
     else {
-        console.log("Sexo inv\u00E1lido!");
+        console.log("Sexo inválido. Tente novamente.");
     }
-    console.log("--------------------------");
-    contador++;
 }
-var mediaMasculino = contadorMasculino > 0 ? somaMasculino / contadorMasculino : 0;
-var mediaFeminino = contadorFeminino > 0 ? somaFeminino / contadorFeminino : 0;
-console.log("M\u00E9dia de idade dos homens: ".concat(mediaMasculino.toFixed(2)));
-console.log("M\u00E9dia de idade das mulheres: ".concat(mediaFeminino.toFixed(2)));
+var mediaIdadeHomem;
+if (contHomem > 0) {
+    mediaIdadeHomem = somaIdadeHomem / contHomem;
+}
+else {
+    mediaIdadeHomem = 0;
+}
+var mediaIdadeMulher;
+if (contMulher > 0) {
+    mediaIdadeMulher = somaIdadeMulher / contMulher;
+}
+else {
+    mediaIdadeMulher = 0;
+}
+console.log("--- Resultados ---");
+console.log("M\u00E9dia de idade dos homens: ".concat(mediaIdadeHomem));
+console.log("M\u00E9dia de idade das mulheres: ".concat(mediaIdadeMulher));
+console.log();
+console.log("Total de homens: ".concat(contHomem));
+console.log("Total de mulheres: ".concat(contMulher));
+console.log();
+console.log("Total de pessoas: ".concat(contHomem + contMulher));

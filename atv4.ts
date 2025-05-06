@@ -5,24 +5,32 @@ não deseja mais continuar. Ao final, exiba a média dos valores digitados.
 Nome aluno: Clara Gabrielle Bononi
 */
 
-let teclado = require('prompt-sync')();
-let soma = 0;
-    let contador = 0;
+let teclado = require("prompt-sync")();
 
-    while (true) {
-      let valor = prompt("Digite um número (ou clique Cancelar para parar):");
+let soma: number = 0;
+let quantidade: number = 0;
+let escolha : number;
 
-      if (valor === null) {
-        break;
-      }
+do {
+  console.log("--- Calculadora de Média ---");
+  console.log("1 - Adicionar número");
+  console.log("2 - Calcular média e sair");
 
-      let numero = parseFloat(valor);
-      soma += numero;
-      contador++;
-    }
+  escolha = parseInt(teclado("Digite a opção desejada: "));
+  console.clear();
 
-    if (contador > 0) {
-      let media = soma / contador;
-      console.log("Média:", media);
-    } else {
-    }  console.log("Nenhum número digitado.");
+  if (escolha === 1) {
+    const numero = parseFloat(teclado("Digite um número: "));
+    soma += numero;
+    quantidade++;
+  } else if (escolha != 2) {
+    console.log("Opção inválida. Tente novamente.");
+  }
+} while (escolha != 2);
+
+if (quantidade > 0) {
+  const media = soma / quantidade;
+  console.log(`Média dos números digitados: ${media}`);
+} else {
+  console.log("Nenhum número foi digitado. Não é possível calcular a média.");
+}

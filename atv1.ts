@@ -6,17 +6,15 @@ o valor de x e mostre os números.
 Nome Aluno: Clara Gabrielle Bononi
 */
 
-const promptSync = require('prompt-sync')();
+let teclado = require('prompt-sync')();
 
-let numerox: number;
-let numeroy: number;
+let x: number = parseInt(teclado("Digite um número x: "));
+let y: number = parseInt(teclado("Digite um número y: "));
 
-numerox = Number(promptSync('Digite um número: '));
-numeroy = Number(promptSync('Digite outro número: '));
+console.log(`Os números digitados foram: ${x} e ${y}`);
 
-console.log(`Os números digitados foram: numerox = ${numerox} e numeroy = ${numeroy}`);
+let recipienteZ : number = x;
+x = y;
+y = recipienteZ;
 
-numerox == numeroy 
-numeroy == numerox 
-
-console.log(`Os números trocados são ${numeroy} e  ${numerox}`)
+console.log(`Os números trocados são ${x} e ${y}`);

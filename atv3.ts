@@ -11,8 +11,10 @@ console.log(`----------------------------`);
 
 let numero: number = parseFloat(teclado(`Digite um número: `));
 
-if (numero >= 10 && numero <= 20) {
-    console.log(`O número ${numero} está entre 10 e 20.`);
+if (numero >= 0 && numero <= 10) {
+    console.log(`O número ${numero} está entre 0 e 10.`);
+}else if (numero > 10 && numero <= 20) {
+    console.log(`O número ${numero} está entre 11 e 20.`);    
 } else if (numero > 20 && numero <= 30) {
     console.log(`O número ${numero} está entre 21 e 30.`);
 } else if (numero > 30 && numero <= 40) {

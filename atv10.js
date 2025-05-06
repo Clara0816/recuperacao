@@ -3,19 +3,26 @@
 pessoas maiores de idade.
 Nome aluno: Clara gabrielle Bononi
 */
-var teclado = require('prompt-sync')();
-var numero = parseInt(teclado("Digite um número para saber se é primo: "));
-var divisores = 0;
-var contador = 1;
-while (contador <= numero) {
-    if (numero % contador === 0) {
-        divisores++;
+var teclado = require("prompt-sync")();
+var somaA= 0;
+var cont = 0;
+var totalP = 0;
+do {
+    console.log("Pessoa ".concat(totalP + 1, ":"));
+    var altura = parseFloat(teclado("Digite sua altura: "));
+    var idade = parseInt(teclado("Digite sua idade: "));
+    if (idade >= 18) {
+        somaA += altura;
+        cont++;
     }
-    contador++;
-}
-if (divisores === 2) {
-    console.log("".concat(numero, " \u00E9 primo."));
+    totalP++;
+} while (totalP < 10);
+var mediaAltura;
+if (cont > 0) {
+    mediaAltura = somaA / cont;
 }
 else {
-    console.log("".concat(numero, " n\u00E3o \u00E9 primo."));
+    mediaAltura = 0;
 }
+console.log("M\u00E9dia de altura das pessoas maiores de idade: ".concat(mediaAltura, " metros"));
+console.log("Total de pessoas maiores de idade: ".concat(cont));

@@ -2,26 +2,15 @@
 9 – Pedir ao usuário dois números e imprimir nesse intervalo os números ímpares.
 Nome aluno: Clara Gabrielle Bononi
 */
-let teclado = require('prompt-sync')();
+let teclado = require(`prompt-sync`)();
+
+let n1: number = parseInt(teclado("Digite o primeiro número: "));
+let n2: number = parseInt(teclado("Digite o segundo número: "));
 
 
-let somaIdades = 0;
-let qtdPessoas = 0;
-let idade = 0;
-
-while (idade >= 0) {
-    idade = parseInt(teclado("Digite a idade (ou número negativo para parar): "));
-
-    if (idade >= 0) {
-        somaIdades += idade;
-        qtdPessoas++;
+  while (n1 <= n2) {
+    if (n1 % 2 != 0) {
+      console.log(`${n1}`); 
     }
-}
-
-let media = 0;
-if (qtdPessoas > 0) {
-    media = somaIdades / qtdPessoas;
-    console.log(`A média das idades é: ${media}`);
-} else {
-        console.log("Nenhuma idade válida foi digitada.");
-    }
+    n1 ++; 
+  }

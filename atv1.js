@@ -5,12 +5,11 @@ Mostre esses números. Em seguida, faça com que x passe a ter o valor de y, e q
 o valor de x e mostre os números.
 Nome Aluno: Clara Gabrielle Bononi
 */
-var promptSync = require('prompt-sync')();
-var numerox;
-var numeroy;
-numerox = Number(promptSync('Digite um número: '));
-numeroy = Number(promptSync('Digite outro número: '));
-console.log("Os n\u00FAmeros digitados foram: numerox = ".concat(numerox, " e numeroy = ").concat(numeroy));
-numerox == numeroy;
-numeroy == numerox;
-console.log("Os n\u00FAmeros trocados s\u00E3o ".concat(numeroy, " e  ").concat(numerox));
+var teclado = require('prompt-sync')();
+var x = parseInt(teclado("Digite um número x: "));
+var y = parseInt(teclado("Digite um número y: "));
+console.log("Os n\u00FAmeros digitados foram: ".concat(x, " e ").concat(y));
+var recipienteZ = x;
+x = y;
+y = recipienteZ;
+console.log("Os n\u00FAmeros trocados s\u00E3o ".concat(x, " e ").concat(y));

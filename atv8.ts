@@ -5,33 +5,54 @@ Nome aluno: Clara Gabrielle Bononi
 */
 let teclado = require(`prompt-sync`)();
 
-let somaMasculino: number = 0;
-let somaFeminino: number = 0;
-let contadorMasculino: number = 0;
-let contadorFeminino: number = 0;
+let somaIdadeHomem: number = 0;
+let somaIdadeMulher: number = 0;
+
+let contHomem: number = 0;
+let contMulher: number = 0;
 
 let contador: number = 1;
 
 while (contador <= 50) {
-    console.log(`Pessoa ${contador}`);
-    let idade: number = parseInt(teclado(`Digite a idade: `));
-    let sexo: string = teclado(`Digite o sexo (M para masculino, F para feminino): `).toUpperCase();
+  console.log(`Pessoa ${contador}:`);
 
-    if (sexo === 'M') {
-        somaMasculino += idade;
-        contadorMasculino++;
-    } else if (sexo === 'F') {
-        somaFeminino += idade;
-        contadorFeminino++;
-    } else {
-        console.log(`Sexo inválido!`);
-    }
-    console.log(`--------------------------`);
+  let idade: number = parseInt(teclado("Digite a idade: "));
+  let sexo: string = teclado(
+    "Digite o sexo (M para masculino, F para feminino): "
+  );
+
+  if (sexo == "M") {
+    somaIdadeHomem += idade;
+    contHomem++;
     contador++;
+  } else if (sexo == "F") {
+    somaIdadeMulher += idade;
+    contMulher++;
+    contador++;
+  } else {
+    console.log("Sexo inválido. Tente novamente.");
+  }
 }
 
-let mediaMasculino: number = contadorMasculino > 0 ? somaMasculino / contadorMasculino : 0;
-let mediaFeminino: number = contadorFeminino > 0 ? somaFeminino / contadorFeminino : 0;
+let mediaIdadeHomem: number;
+if (contHomem > 0) {
+  mediaIdadeHomem = somaIdadeHomem / contHomem;
+} else {
+  mediaIdadeHomem = 0;
+}
 
-console.log(`Média de idade dos homens: ${mediaMasculino.toFixed(2)}`);
-console.log(`Média de idade das mulheres: ${mediaFeminino.toFixed(2)}`);
+let mediaIdadeMulher: number;
+if (contMulher > 0) {
+  mediaIdadeMulher = somaIdadeMulher / contMulher;
+} else {
+  mediaIdadeMulher = 0;
+}
+
+console.log("--- Resultados ---");
+console.log(`Média de idade dos homens: ${mediaIdadeHomem}`);
+console.log(`Média de idade das mulheres: ${mediaIdadeMulher}`);
+console.log();
+console.log(`Total de homens: ${contHomem}`);
+console.log(`Total de mulheres: ${contMulher}`);
+console.log();
+console.log(`Total de pessoas: ${contHomem + contMulher}`);

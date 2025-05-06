@@ -8,8 +8,11 @@ console.log("----------------------------");
 console.log("-- VERIFICA INTERVALOS --");
 console.log("----------------------------");
 var numero = parseFloat(teclado("Digite um n\u00FAmero: "));
-if (numero >= 10 && numero <= 20) {
-    console.log("O n\u00FAmero ".concat(numero, " est\u00E1 entre 10 e 20."));
+if (numero >= 0 && numero <= 10) {
+    console.log("O n\u00FAmero ".concat(numero, " est\u00E1 entre 0 e 10."));
+}
+else if (numero > 10 && numero <= 20) {
+    console.log("O n\u00FAmero ".concat(numero, " est\u00E1 entre 11 e 20."));
 }
 else if (numero > 20 && numero <= 30) {
     console.log("O n\u00FAmero ".concat(numero, " est\u00E1 entre 21 e 30."));

@@ -3,6 +3,7 @@
 decrescente.
 Nome Aluno: Clara Gabrielle Bononi
 */
+
 let promptSync = require('prompt-sync')();
 let n1: number = Number(promptSync('Digite o primeiro número: '));
 let n2: number = Number(promptSync('Digite o segundo número: '));
@@ -12,7 +13,7 @@ let meio: number = 0;
 let menor: number = 0;
 if (n1 > n2 && n1 > n3) {
     maior = n1;
-     if (n2 > n3) {
+    if (n2 > n3) {
         meio = n2;
         menor = n3;
     } else {
